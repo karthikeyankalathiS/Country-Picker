@@ -47,3 +47,17 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
+
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "countrypicker"
+            artifactId = "countrypicker"
+            version = "V4.0"
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
+}
