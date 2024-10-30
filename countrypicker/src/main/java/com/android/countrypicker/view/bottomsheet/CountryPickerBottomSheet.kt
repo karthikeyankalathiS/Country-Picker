@@ -7,11 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.android.countrypicker.R
 import com.android.countrypicker.databinding.CountryPickerBottomSheetBinding
 import com.android.countrypicker.view.adapter.CountryAdapter
 import com.android.countrypicker.data.CountryData
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.countrypicker.countrypicker.model.Country
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import java.util.*
 
 class CountryPickerBottomSheet : BottomSheetDialogFragment() {
@@ -21,6 +23,10 @@ class CountryPickerBottomSheet : BottomSheetDialogFragment() {
     private var filteredCountryList = ArrayList<Country>()
 
     private var countrySelectionListener: ((Country) -> Unit)? = null
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): BottomSheetDialog {
+        return BottomSheetDialog(requireContext(), R.style.BottomSheetDialogTheme)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
