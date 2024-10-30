@@ -6,7 +6,6 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.countrypicker.databinding.CountryPickerBottomSheetBinding
 import com.android.countrypicker.view.adapter.CountryAdapter
@@ -16,30 +15,32 @@ import com.countrypicker.countrypicker.model.Country
 import java.util.*
 
 class CountryPickerBottomSheet : BottomSheetDialogFragment() {
-
     private lateinit var binding: CountryPickerBottomSheetBinding
     private lateinit var countryAdapter: CountryAdapter
     private var countryList = CountryData.getAllCountries()
     private var filteredCountryList = ArrayList<Country>()
+
+    private var countrySelectionListener: ((Country) -> Unit)? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = CountryPickerBottomSheetBinding.inflate(inflater, container, false)
-
         setupRecyclerView()
         setupCloseButton()
         setupSearchListener()
-
         return binding.root
+    }
+
+    fun setCountrySelectionListener(listener: (Country) -> Unit) {
+        this.countrySelectionListener = listener
     }
 
     private fun setupRecyclerView() {
         filteredCountryList.addAll(countryList)
-
         countryAdapter = CountryAdapter(filteredCountryList) { selectedCountry ->
-            Toast.makeText(context, "Selected: ${selectedCountry.name}", Toast.LENGTH_SHORT).show()
+            countrySelectionListener?.invoke(selectedCountry)
             dismiss()
         }
 
