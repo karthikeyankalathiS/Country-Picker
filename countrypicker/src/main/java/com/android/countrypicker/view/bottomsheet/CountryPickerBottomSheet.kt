@@ -6,13 +6,14 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.android.countrypicker.R
 import com.android.countrypicker.databinding.CountryPickerBottomSheetBinding
 import com.android.countrypicker.view.adapter.CountryAdapter
 import com.android.countrypicker.data.CountryData
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.countrypicker.countrypicker.model.Country
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import java.util.*
 
@@ -25,7 +26,20 @@ class CountryPickerBottomSheet : BottomSheetDialogFragment() {
     private var countrySelectionListener: ((Country) -> Unit)? = null
 
     override fun onCreateDialog(savedInstanceState: Bundle?): BottomSheetDialog {
-        return BottomSheetDialog(requireContext(), R.style.BottomSheetDialogTheme)
+        val dialog = super.onCreateDialog(savedInstanceState) as BottomSheetDialog
+        dialog.setOnShowListener { dialogInterface ->
+            val bottomSheetDialog = dialogInterface as BottomSheetDialog
+            val bottomSheet = bottomSheetDialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet) as View
+            val behavior = BottomSheetBehavior.from(bottomSheet)
+            behavior.state = BottomSheetBehavior.STATE_EXPANDED
+            behavior.peekHeight = 0
+
+            // Adjust the height to make it full screen
+            val layoutParams = bottomSheet.layoutParams
+            layoutParams.height = WindowManager.LayoutParams.MATCH_PARENT
+            bottomSheet.layoutParams = layoutParams
+        }
+        return dialog
     }
 
     override fun onCreateView(
