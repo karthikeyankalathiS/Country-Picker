@@ -24,10 +24,6 @@ class CountryPickerBottomSheet : BottomSheetDialogFragment() {
 
     private var countrySelectionListener: ((Country) -> Unit)? = null
 
-    override fun onCreateDialog(savedInstanceState: Bundle?): BottomSheetDialog {
-        return BottomSheetDialog(requireContext(), R.style.BottomSheetDialogTheme)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
