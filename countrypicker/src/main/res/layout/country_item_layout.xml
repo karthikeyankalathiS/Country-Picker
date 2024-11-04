@@ -20,16 +20,12 @@
             android:layout_height="@dimen/dimen_50dp"
             android:gravity="center">
 
-            <com.google.android.material.imageview.ShapeableImageView
+            <ImageView
                 android:id="@+id/image_flag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                app:srcCompat="@drawable/flag_india"
-                app:shapeAppearanceModel="rounded"
-                app:shapeAppearanceOverlay="@null"
-                app:cornerSize="@dimen/dimen_4dp" />
-
+                app:srcCompat="@drawable/flag_india" />
         </LinearLayout>
 
         <TextView
