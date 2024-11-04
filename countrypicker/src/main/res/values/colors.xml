@@ -9,6 +9,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#C4C4C4</color>
+    <color name="toolbar_color">#244352</color>
     <color name="arrow_grey">#CCCCCC</color>
     <color name="transparent">#7F000000</color>
     <color name="bottomsheet_background">#05000000</color>

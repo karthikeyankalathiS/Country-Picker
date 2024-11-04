@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="@color/language_bg"
         android:gravity="center_vertical">
 
         <ImageButton
@@ -30,6 +31,7 @@
             android:gravity="center"
             android:fontFamily="@font/lato_bold_700"
             android:text="@string/select_country"
+            android:layout_marginRight="@dimen/dimen_40dp"
             android:textColor="@color/text_color"
             android:textSize="@dimen/dimen_18sp" />
     </LinearLayout>
