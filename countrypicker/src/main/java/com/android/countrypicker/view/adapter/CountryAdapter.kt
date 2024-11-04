@@ -3,7 +3,7 @@ package com.android.countrypicker.view.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.android.countrypicker.databinding.CountryItemLayoutBinding
+import com.android.countrypicker.databinding.CpItemLayoutBinding
 import com.countrypicker.countrypicker.model.Country
 
 class CountryAdapter(
@@ -11,7 +11,7 @@ class CountryAdapter(
     private val onCountrySelected: (Country) -> Unit
 ) : RecyclerView.Adapter<CountryAdapter.CountryViewHolder>() {
 
-    inner class CountryViewHolder(private val binding: CountryItemLayoutBinding) :
+    inner class CountryViewHolder(private val binding: CpItemLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(country: Country) {
@@ -27,7 +27,7 @@ class CountryAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountryViewHolder {
-        val binding = CountryItemLayoutBinding.inflate(
+        val binding = CpItemLayoutBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false

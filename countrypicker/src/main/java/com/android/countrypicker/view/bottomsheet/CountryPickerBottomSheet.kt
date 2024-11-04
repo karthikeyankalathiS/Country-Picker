@@ -7,17 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.android.countrypicker.R
-import com.android.countrypicker.databinding.CountryPickerBottomSheetBinding
+import com.android.countrypicker.databinding.CpBottomSheetBinding
 import com.android.countrypicker.view.adapter.CountryAdapter
 import com.android.countrypicker.data.CountryData
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.countrypicker.countrypicker.model.Country
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import java.util.*
 
 class CountryPickerBottomSheet : BottomSheetDialogFragment() {
-    private lateinit var binding: CountryPickerBottomSheetBinding
+    private lateinit var binding: CpBottomSheetBinding
     private lateinit var countryAdapter: CountryAdapter
     private var countryList = CountryData.getAllCountries()
     private var filteredCountryList = ArrayList<Country>()
@@ -28,7 +26,7 @@ class CountryPickerBottomSheet : BottomSheetDialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = CountryPickerBottomSheetBinding.inflate(inflater, container, false)
+        binding = CpBottomSheetBinding.inflate(inflater, container, false)
         setupRecyclerView()
         setupCloseButton()
         setupSearchListener()

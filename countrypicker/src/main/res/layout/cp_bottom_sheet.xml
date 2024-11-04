@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:background="@drawable/layout_background"
+    android:background="@drawable/cp_layout_background"
     android:paddingTop="@dimen/dimen_28dp">
 
     <LinearLayout
@@ -36,7 +36,7 @@
 
     <include
         android:id="@+id/searchBox"
-        layout="@layout/search_box_component"
+        layout="@layout/cp_search_box_component"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dimen_20dp"
@@ -51,6 +51,6 @@
         android:clipToPadding="false"
         android:overScrollMode="never"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/country_item_layout" />
+        tools:listitem="@layout/cp_item_layout" />
 
 </LinearLayout>
