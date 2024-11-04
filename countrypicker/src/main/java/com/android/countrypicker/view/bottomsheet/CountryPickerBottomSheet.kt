@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.android.countrypicker.R
 import com.android.countrypicker.databinding.CpBottomSheetBinding
 import com.android.countrypicker.view.adapter.CountryAdapter
 import com.android.countrypicker.data.CountryData
@@ -85,4 +86,7 @@ class CountryPickerBottomSheet : BottomSheetDialogFragment() {
         }
         countryAdapter.notifyDataSetChanged()
     }
+
+    override fun getTheme(): Int = R.style.BottomSheetDialogTheme
+
 }
