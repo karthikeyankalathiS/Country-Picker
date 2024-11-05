@@ -15,7 +15,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.countrypicker.countrypicker.model.Country
 import java.util.*
 
-class CountryPickerBottomSheet : BottomSheetDialogFragment() {
+class CountryPickerBottomSheet(private val dialogTheme: Int = R.style.BottomSheetDialogTheme) : BottomSheetDialogFragment() {
     private lateinit var binding: CpBottomSheetBinding
     private lateinit var countryAdapter: CountryAdapter
     private var countryList = CountryData.getAllCountries()
@@ -87,6 +87,11 @@ class CountryPickerBottomSheet : BottomSheetDialogFragment() {
         countryAdapter.notifyDataSetChanged()
     }
 
-    override fun getTheme(): Int = R.style.BottomSheetDialogTheme
+    override fun getTheme(): Int = dialogTheme
 
+    companion object {
+        fun newInstance(theme: Int): CountryPickerBottomSheet {
+            return CountryPickerBottomSheet(theme)
+        }
+    }
 }
