@@ -89,9 +89,4 @@ class CountryPickerBottomSheet(private val dialogTheme: Int = R.style.BottomShee
 
     override fun getTheme(): Int = dialogTheme
 
-    companion object {
-        fun newInstance(theme: Int): CountryPickerBottomSheet {
-            return CountryPickerBottomSheet(theme)
-        }
-    }
 }
